@@ -1,40 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-earth-brown: #5D4037;
-  --color-burnt-orange: #CC5500;
-  --color-africa-gold: #DAA520;
-  --color-forest-green: #228B22;
-  --color-kente-yellow: #FFD700;
-  --color-kente-red: #B22222;
+  --color-africa-terracotta: #C04000;
+  --color-africa-gold: #E1AD01;
+  --color-africa-green: #3B5323;
+  --color-africa-ebony: #1A1A1A;
+  --color-africa-cream: #FFF8E7;
+  --color-africa-clay: #8B4513;
 }
 
 @layer utilities {
+  .bg-africa-gradient {
+    background: linear-gradient(135deg, #C04000 0%, #8B4513 100%);
+  }
   .bg-kente-pattern {
-    background-color: #DAA520;
-    background-image: 
-      linear-gradient(90deg, #CC5500 50%, transparent 50%),
-      linear-gradient(#5D4037 50%, transparent 50%);
-    background-size: 40px 40px;
-    opacity: 0.1;
-  }
-
-  .border-kente-strip {
-    border-top: 8px solid;
-    border-image: repeating-linear-gradient(
-      90deg,
-      #DAA520,
-      #DAA520 20px,
-      #CC5500 20px,
-      #CC5500 40px,
-      #228B22 40px,
-      #228B22 60px,
-      #5D4037 60px,
-      #5D4037 80px
-    ) 1;
-  }
-
-  .text-shadow-earth {
-    text-shadow: 2px 2px 4px rgba(93, 64, 55, 0.3);
+    background-image: radial-gradient(#E1AD01 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }
