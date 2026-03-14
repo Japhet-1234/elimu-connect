@@ -94,11 +94,12 @@ let searchTimeout: number | null = null;
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('active');
+      entry.target.classList.add('opacity-100', 'translate-y-0');
+      entry.target.classList.remove('opacity-0', 'translate-y-10');
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
 function observeElements() {
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
@@ -192,14 +193,12 @@ function renderCategories() {
     searchResultsSection?.classList.add('hidden');
   }
 
-  const filtered = categories.filter(cat => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
-    return cat.title.toLowerCase().includes(q) ||
-      cat.swTitle.toLowerCase().includes(q) ||
-      cat.desc.toLowerCase().includes(q) ||
-      cat.swDesc.toLowerCase().includes(q);
-  });
+  const filtered = categories.filter(cat => 
+    cat.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    cat.swTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    cat.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    cat.swDesc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   
   categoriesGrid.innerHTML = '';
   
@@ -209,7 +208,7 @@ function renderCategories() {
     noResults?.classList.add('hidden');
     filtered.forEach((cat, index) => {
       const card = document.createElement('div');
-      card.className = 'bento-card group reveal';
+      card.className = 'bento-card group reveal opacity-0 translate-y-10 transition-all duration-700';
       card.style.transitionDelay = `${index * 100}ms`;
       card.innerHTML = `
         <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-[2rem] ${cat.color} text-white shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
@@ -239,7 +238,7 @@ function renderUpdates() {
   updatesList.innerHTML = '';
   updates.forEach((update, index) => {
     const item = document.createElement('div');
-    item.className = 'flex items-center justify-between p-8 bg-white rounded-[2rem] border-2 border-africa-gold/5 hover:border-africa-terracotta transition-all group cursor-pointer reveal';
+    item.className = 'flex items-center justify-between p-8 bg-white rounded-[2rem] border border-africa-gold/10 hover:border-africa-terracotta transition-all group cursor-pointer reveal opacity-0 translate-y-10';
     item.style.transitionDelay = `${index * 50}ms`;
     item.innerHTML = `
       <div class="flex items-center gap-6">
