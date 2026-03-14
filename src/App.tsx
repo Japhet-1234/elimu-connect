@@ -107,6 +107,50 @@ export default function App() {
     { title: "Necta Results 2024 - Preview", level: "General", type: "Results" },
   ];
 
+  const [downloads, setDownloads] = useState<Record<number, { progress: number; timeLeft: number; isDownloading: boolean }>>({});
+
+  const simulateDownload = (index: number) => {
+    if (downloads[index]?.isDownloading) return;
+
+    setDownloads(prev => ({
+      ...prev,
+      [index]: { progress: 0, timeLeft: 10, isDownloading: true }
+    }));
+
+    let progress = 0;
+    const duration = 5000; // 5 seconds simulation
+    const interval = 100;
+    const steps = duration / interval;
+    const increment = 100 / steps;
+
+    const timer = setInterval(() => {
+      progress += increment;
+      const remainingPercent = 100 - progress;
+      const timeLeft = Math.max(0, Math.ceil((remainingPercent / 100) * 5));
+
+      if (progress >= 100) {
+        clearInterval(timer);
+        setDownloads(prev => ({
+          ...prev,
+          [index]: { progress: 100, timeLeft: 0, isDownloading: false }
+        }));
+        // Reset after a delay
+        setTimeout(() => {
+          setDownloads(prev => {
+            const next = { ...prev };
+            delete next[index];
+            return next;
+          });
+        }, 2000);
+      } else {
+        setDownloads(prev => ({
+          ...prev,
+          [index]: { progress, timeLeft, isDownloading: true }
+        }));
+      }
+    }, interval);
+  };
+
   return (
     <div className="min-height-screen flex flex-col font-sans bg-brand-cream relative">
       <div className="absolute inset-0 pattern-bg pointer-events-none" />
@@ -288,26 +332,85 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {popularResources.map((res, i) => (
-                <div key={i} className="flex items-center justify-between p-8 bg-brand-cream rounded-[2rem] border-4 border-brand-earth/10 hover:border-brand-terracotta hover:shadow-2xl transition-all group">
-                  <div className="flex items-center gap-8">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-terracotta border-2 border-brand-terracotta/20 shadow-inner">
-                      <FileText className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl font-serif font-bold text-brand-earth group-hover:text-brand-terracotta transition-colors">{res.title}</h4>
-                      <div className="flex items-center gap-4 mt-3">
-                        <span className="text-xs font-black px-4 py-1.5 bg-brand-olive text-white rounded-full uppercase tracking-wider">{res.level}</span>
-                        <span className="w-2 h-2 bg-brand-earth/20 rounded-full" />
-                        <span className="text-xs font-black text-brand-earth/50 uppercase tracking-widest">{res.type}</span>
+              {popularResources.map((res, i) => {
+                const download = downloads[i];
+                return (
+                  <div key={i} className="flex flex-col p-8 bg-brand-cream rounded-[2rem] border-4 border-brand-earth/10 hover:border-brand-terracotta hover:shadow-2xl transition-all group relative overflow-hidden">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-8">
+                        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-terracotta border-2 border-brand-terracotta/20 shadow-inner">
+                          <FileText className="w-8 h-8" />
+                        </div>
+                        <div>
+                          <h4 className="text-2xl font-serif font-bold text-brand-earth group-hover:text-brand-terracotta transition-colors">{res.title}</h4>
+                          <div className="flex items-center gap-4 mt-3">
+                            <span className="text-xs font-black px-4 py-1.5 bg-brand-olive text-white rounded-full uppercase tracking-wider">{res.level}</span>
+                            <span className="w-2 h-2 bg-brand-earth/20 rounded-full" />
+                            <span className="text-xs font-black text-brand-earth/50 uppercase tracking-widest">{res.type}</span>
+                          </div>
+                        </div>
                       </div>
+                      <button 
+                        onClick={() => simulateDownload(i)}
+                        disabled={download?.isDownloading}
+                        className={`w-14 h-14 flex items-center justify-center rounded-full transition-all shadow-md ${
+                          download?.isDownloading 
+                            ? 'bg-slate-200 text-slate-400 cursor-not-allowed' 
+                            : 'bg-white text-brand-earth border-2 border-brand-earth/10 hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta'
+                        }`}
+                      >
+                        {download?.isDownloading ? (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                          >
+                            <Globe className="w-7 h-7" />
+                          </motion.div>
+                        ) : (
+                          <Download className="w-7 h-7" />
+                        )}
+                      </button>
                     </div>
+
+                    {/* Download Progress Overlay */}
+                    <AnimatePresence>
+                      {download && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="mt-4 pt-4 border-t-2 border-brand-earth/5"
+                        >
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-sm font-black text-brand-earth uppercase tracking-widest">
+                              {download.progress >= 100 
+                                ? (lang === 'en' ? 'Complete!' : 'Imekamilika!') 
+                                : (lang === 'en' ? 'Downloading...' : 'Inapakua...')}
+                            </span>
+                            <span className="text-sm font-black text-brand-terracotta">
+                              {Math.round(download.progress)}%
+                            </span>
+                          </div>
+                          <div className="w-full h-4 bg-white rounded-full overflow-hidden border-2 border-brand-earth/10">
+                            <motion.div 
+                              className="h-full bg-brand-terracotta"
+                              initial={{ width: 0 }}
+                              animate={{ width: `${download.progress}%` }}
+                            />
+                          </div>
+                          {download.isDownloading && (
+                            <div className="mt-2 text-right">
+                              <span className="text-[10px] font-black text-brand-earth/40 uppercase tracking-widest">
+                                {lang === 'en' ? 'Est. time:' : 'Muda uliosalia:'} {download.timeLeft}s
+                              </span>
+                            </div>
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                  <button className="w-14 h-14 flex items-center justify-center rounded-full bg-white text-brand-earth border-2 border-brand-earth/10 hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-all shadow-md">
-                    <Download className="w-7 h-7" />
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
