@@ -17,4 +17,13 @@
     background-image: radial-gradient(#E1AD01 1px, transparent 1px);
     background-size: 20px 20px;
   }
+  .bento-card {
+    @apply relative overflow-hidden rounded-[2rem] border-2 border-africa-gold/10 bg-white p-8 transition-all duration-500 hover:border-africa-terracotta hover:shadow-2xl hover:-translate-y-1;
+  }
+  .section-title {
+    @apply text-4xl font-black text-africa-ebony uppercase tracking-tighter sm:text-5xl;
+  }
+  .accent-line {
+    @apply h-2 w-24 bg-africa-gold rounded-full mt-4;
+  }
 }

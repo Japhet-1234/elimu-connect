@@ -190,20 +190,20 @@ function renderCategories() {
     noResults?.classList.add('hidden');
     filtered.forEach(cat => {
       const card = document.createElement('div');
-      card.className = 'group relative overflow-hidden rounded-3xl border-2 border-africa-gold/10 bg-white p-8 transition-all hover:border-africa-terracotta hover:shadow-2xl cursor-pointer';
+      card.className = 'bento-card group';
       card.innerHTML = `
-        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${cat.color} text-white shadow-lg">
+        <div class="mb-8 flex h-20 w-20 items-center justify-center rounded-[1.5rem] ${cat.color} text-white shadow-xl group-hover:scale-110 transition-transform duration-500">
           ${cat.icon}
         </div>
-        <h3 class="text-2xl font-black text-africa-ebony">
+        <h3 class="text-3xl font-black text-africa-ebony group-hover:text-africa-terracotta transition-colors">
           ${currentLang === 'en' ? cat.title : cat.swTitle}
         </h3>
-        <p class="mt-4 text-africa-clay font-medium leading-relaxed">
+        <p class="mt-4 text-africa-clay font-medium leading-relaxed text-lg">
           ${currentLang === 'en' ? cat.desc : cat.swDesc}
         </p>
-        <div class="mt-8 flex items-center gap-2 text-sm font-black text-africa-terracotta uppercase tracking-widest">
+        <div class="mt-10 flex items-center gap-3 text-sm font-black text-africa-terracotta uppercase tracking-[0.2em]">
           ${t.explore}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          <svg class="group-hover:translate-x-2 transition-transform" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </div>
       `;
       categoriesGrid.appendChild(card);
@@ -259,22 +259,25 @@ function renderSearchResults() {
   
   filtered.forEach(res => {
     const card = document.createElement('div');
-    card.className = 'p-6 bg-white rounded-2xl border border-africa-gold/10 hover:border-africa-terracotta hover:shadow-lg transition-all group cursor-pointer';
+    card.className = 'bento-card group p-6';
     card.innerHTML = `
-      <div class="flex items-start justify-between mb-4">
-        <div class="p-3 rounded-xl bg-africa-cream text-africa-terracotta group-hover:bg-africa-terracotta group-hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/></svg>
+      <div class="flex items-start justify-between mb-6">
+        <div class="p-4 rounded-2xl bg-africa-cream text-africa-terracotta group-hover:bg-africa-terracotta group-hover:text-white transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/></svg>
         </div>
-        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-africa-cream rounded-md text-africa-clay">
+        <span class="text-xs font-black uppercase tracking-widest px-3 py-1.5 bg-africa-gold/10 rounded-lg text-africa-clay border border-africa-gold/20">
           ${res.type}
         </span>
       </div>
-      <h4 class="font-bold text-africa-ebony group-hover:text-africa-terracotta transition-colors">
+      <h4 class="text-xl font-black text-africa-ebony group-hover:text-africa-terracotta transition-colors leading-tight">
         ${currentLang === 'en' ? res.title : res.swTitle}
       </h4>
-      <p class="mt-2 text-xs text-africa-clay font-bold uppercase tracking-widest">
-        ${res.level} • ${res.category}
-      </p>
+      <div class="mt-4 pt-4 border-t border-africa-gold/10 flex items-center justify-between">
+        <p class="text-xs text-africa-clay font-black uppercase tracking-widest">
+          ${res.level} • ${res.category}
+        </p>
+        <svg class="text-africa-gold opacity-0 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
     `;
     searchResultsGrid.appendChild(card);
   });
