@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-un-blue: #009EDB;
-  --color-un-dark: #0077B6;
-  --color-africa-ochre: #DAA520;
-  --color-africa-terracotta: #CC5500;
+  --color-earth-brown: #5D4037;
+  --color-burnt-orange: #CC5500;
+  --color-africa-gold: #DAA520;
+  --color-forest-green: #228B22;
+  --color-kente-yellow: #FFD700;
+  --color-kente-red: #B22222;
 }
 
 @layer utilities {
-  .bg-pattern-african {
-    background-image: radial-gradient(#DAA520 0.5px, transparent 0.5px), radial-gradient(#DAA520 0.5px, #ffffff 0.5px);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
-    opacity: 0.05;
+  .bg-kente-pattern {
+    background-color: #DAA520;
+    background-image: 
+      linear-gradient(90deg, #CC5500 50%, transparent 50%),
+      linear-gradient(#5D4037 50%, transparent 50%);
+    background-size: 40px 40px;
+    opacity: 0.1;
   }
 
-  .border-kente {
+  .border-kente-strip {
+    border-top: 8px solid;
     border-image: repeating-linear-gradient(
-      45deg,
+      90deg,
       #DAA520,
-      #DAA520 10px,
-      #CC5500 10px,
+      #DAA520 20px,
       #CC5500 20px,
-      #009EDB 20px,
-      #009EDB 30px
-    ) 10;
+      #CC5500 40px,
+      #228B22 40px,
+      #228B22 60px,
+      #5D4037 60px,
+      #5D4037 80px
+    ) 1;
+  }
+
+  .text-shadow-earth {
+    text-shadow: 2px 2px 4px rgba(93, 64, 55, 0.3);
   }
 }
