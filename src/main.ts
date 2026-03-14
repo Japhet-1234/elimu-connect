@@ -86,6 +86,22 @@ const resources = [
 // State
 let currentLang: 'en' | 'sw' = 'sw';
 let searchQuery = '';
+let searchTimeout: number | null = null;
+
+// Intersection Observer for reveal animations
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('opacity-100', 'translate-y-0');
+      entry.target.classList.remove('opacity-0', 'translate-y-10');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+function observeElements() {
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
 
 // Translations
 const translations = {
@@ -188,26 +204,29 @@ function renderCategories() {
     noResults?.classList.remove('hidden');
   } else {
     noResults?.classList.add('hidden');
-    filtered.forEach(cat => {
+    filtered.forEach((cat, index) => {
       const card = document.createElement('div');
-      card.className = 'bento-card group';
+      card.className = 'bento-card group reveal opacity-0 translate-y-10 transition-all duration-700';
+      card.style.transitionDelay = `${index * 100}ms`;
       card.innerHTML = `
-        <div class="mb-8 flex h-20 w-20 items-center justify-center rounded-[1.5rem] ${cat.color} text-white shadow-xl group-hover:scale-110 transition-transform duration-500">
+        <div class="mb-8 flex h-24 w-24 items-center justify-center rounded-[2rem] ${cat.color} text-white shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
           ${cat.icon}
         </div>
-        <h3 class="text-3xl font-black text-africa-ebony group-hover:text-africa-terracotta transition-colors">
+        <h3 class="text-3xl font-black text-africa-ebony group-hover:text-africa-terracotta transition-colors leading-tight">
           ${currentLang === 'en' ? cat.title : cat.swTitle}
         </h3>
         <p class="mt-4 text-africa-clay font-medium leading-relaxed text-lg">
           ${currentLang === 'en' ? cat.desc : cat.swDesc}
         </p>
-        <div class="mt-10 flex items-center gap-3 text-sm font-black text-africa-terracotta uppercase tracking-[0.2em]">
-          ${t.explore}
+        <div class="mt-12 flex items-center gap-4 text-xs font-black text-africa-terracotta uppercase tracking-[0.3em]">
+          <span>${t.explore}</span>
+          <div class="h-px w-8 bg-africa-terracotta group-hover:w-16 transition-all duration-500"></div>
           <svg class="group-hover:translate-x-2 transition-transform" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </div>
       `;
       categoriesGrid.appendChild(card);
     });
+    observeElements();
   }
 }
 
@@ -215,25 +234,31 @@ function renderUpdates() {
   if (!updatesList) return;
   
   updatesList.innerHTML = '';
-  updates.forEach(update => {
+  updates.forEach((update, index) => {
     const item = document.createElement('div');
-    item.className = 'flex items-center justify-between p-6 bg-white rounded-2xl border border-africa-gold/10 hover:border-africa-terracotta transition-all group cursor-pointer';
+    item.className = 'flex items-center justify-between p-8 bg-white rounded-[2rem] border border-africa-gold/10 hover:border-africa-terracotta transition-all group cursor-pointer reveal opacity-0 translate-y-10';
+    item.style.transitionDelay = `${index * 50}ms`;
     item.innerHTML = `
-      <div class="flex items-center gap-4">
-        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-africa-cream text-africa-clay group-hover:bg-africa-terracotta group-hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="flex items-center gap-6">
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-africa-cream text-africa-clay group-hover:bg-africa-terracotta group-hover:text-white group-hover:scale-110 transition-all duration-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <div>
-          <h4 class="font-bold text-africa-ebony">${update.title}</h4>
-          <p class="text-xs text-africa-clay font-bold uppercase tracking-widest mt-1">
-            ${update.type} • ${update.date}
+          <h4 class="text-xl font-black text-africa-ebony group-hover:text-africa-terracotta transition-colors">${update.title}</h4>
+          <p class="text-xs text-africa-clay font-black uppercase tracking-[0.2em] mt-2 flex items-center gap-2">
+            <span class="px-2 py-1 bg-africa-gold/10 rounded text-africa-gold">${update.type}</span>
+            <span>•</span>
+            <span>${update.date}</span>
           </p>
         </div>
       </div>
-      <svg class="text-africa-clay group-hover:text-africa-terracotta transition-colors" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      <div class="flex h-12 w-12 items-center justify-center rounded-full border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:border-africa-terracotta transition-all duration-500">
+        <svg class="text-africa-clay group-hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
     `;
     updatesList.appendChild(item);
   });
+  observeElements();
 }
 
 function renderSearchResults() {
@@ -310,24 +335,28 @@ clearSearchBtn?.addEventListener('click', () => {
   renderCategories();
 });
 
+function handleSearch(query: string) {
+  searchQuery = query;
+  if (searchTimeout) clearTimeout(searchTimeout);
+  
+  searchTimeout = window.setTimeout(() => {
+    renderCategories();
+    if (searchQuery.length > 2) {
+      document.getElementById('search-results-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 300);
+}
+
 searchInputDesktop?.addEventListener('input', (e) => {
-  searchQuery = (e.target as HTMLInputElement).value;
-  renderCategories();
+  handleSearch((e.target as HTMLInputElement).value);
 });
 
 searchInputMobile?.addEventListener('input', (e) => {
-  searchQuery = (e.target as HTMLInputElement).value;
-  renderCategories();
+  handleSearch((e.target as HTMLInputElement).value);
 });
 
 searchInputHero?.addEventListener('input', (e) => {
-  searchQuery = (e.target as HTMLInputElement).value;
-  renderCategories();
-  
-  // Scroll to categories on search if not already there
-  if (searchQuery.length > 2) {
-    document.getElementById('notes')?.scrollIntoView({ behavior: 'smooth' });
-  }
+  handleSearch((e.target as HTMLInputElement).value);
 });
 
 // Close mobile menu on link click

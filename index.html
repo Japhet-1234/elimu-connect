@@ -6,26 +6,26 @@
     <title>Elimu Hub</title>
     <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body class="min-h-screen bg-africa-cream font-sans text-africa-ebony selection:bg-africa-terracotta selection:text-white">
+  <body class="selection:bg-africa-terracotta selection:text-white">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-africa-gold/20">
-      <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <header class="glass-header">
+      <div class="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
         <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-africa-terracotta text-white shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <div class="flex items-center gap-3 group cursor-pointer">
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-africa-terracotta text-white shadow-xl group-hover:rotate-12 transition-transform duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
-          <span class="text-xl font-black tracking-tighter text-africa-terracotta sm:text-2xl uppercase">
+          <span class="text-2xl font-black tracking-tighter text-africa-terracotta uppercase">
             ELIMU<span class="text-africa-gold">HUB</span>
           </span>
         </div>
 
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#home" class="text-sm font-bold uppercase tracking-widest hover:text-africa-terracotta transition-colors">Home</a>
-          <a href="#notes" class="text-sm font-bold uppercase tracking-widest hover:text-africa-terracotta transition-colors">Notes</a>
-          <a href="#papers" class="text-sm font-bold uppercase tracking-widest hover:text-africa-terracotta transition-colors">Past Papers</a>
-          <a href="#contact" class="text-sm font-bold uppercase tracking-widest hover:text-africa-terracotta transition-colors">Contact</a>
+        <nav class="hidden md:flex items-center gap-10">
+          <a href="#home" class="text-xs font-black uppercase tracking-[0.2em] hover:text-africa-terracotta transition-colors">Home</a>
+          <a href="#notes" class="text-xs font-black uppercase tracking-[0.2em] hover:text-africa-terracotta transition-colors">Notes</a>
+          <a href="#papers" class="text-xs font-black uppercase tracking-[0.2em] hover:text-africa-terracotta transition-colors">Past Papers</a>
+          <a href="#contact" class="text-xs font-black uppercase tracking-[0.2em] hover:text-africa-terracotta transition-colors">Contact</a>
         </nav>
 
         <!-- Search Bar (Desktop) -->
@@ -33,86 +33,86 @@
           <input 
             type="text" 
             id="search-input-desktop"
-            placeholder="Tafuta masomo, notisi..."
-            class="pl-10 pr-4 py-2 rounded-full bg-slate-100 border-none focus:ring-2 focus:ring-africa-gold text-sm w-64 transition-all"
+            placeholder="Tafuta masomo..."
+            class="pl-12 pr-6 py-3 rounded-full bg-africa-cream border border-africa-gold/10 focus:ring-4 focus:ring-africa-gold/20 text-sm w-72 transition-all outline-none"
           />
-          <svg class="absolute left-3 text-slate-400" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <svg class="absolute left-4 text-africa-clay" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </div>
 
         <!-- Mobile Actions -->
         <div class="flex items-center gap-4 md:hidden">
-          <button id="menu-toggle" class="text-africa-terracotta">
-            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          <button id="menu-toggle" class="text-africa-terracotta p-2">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
 
         <!-- Language Toggle -->
         <button 
           id="lang-toggle"
-          class="hidden sm:flex items-center gap-1 text-xs font-black bg-africa-terracotta text-white px-3 py-1.5 rounded-full hover:bg-africa-terracotta/90 transition-all"
+          class="hidden sm:flex items-center gap-2 text-[10px] font-black bg-africa-ebony text-white px-5 py-2.5 rounded-full hover:bg-africa-terracotta transition-all uppercase tracking-widest shadow-lg"
         >
-          ENGLISH
+          <span>ENGLISH</span>
         </button>
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-africa-gold/20 px-4 py-6 space-y-4">
-        <div class="relative mb-6">
+      <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-africa-gold/10 px-6 py-10 space-y-6">
+        <div class="relative mb-8">
           <input 
             type="text" 
             id="search-input-mobile"
-            placeholder="Tafuta masomo, notisi..."
-            class="w-full pl-10 pr-4 py-3 rounded-xl bg-africa-cream border-none text-sm"
+            placeholder="Tafuta masomo..."
+            class="w-full pl-12 pr-6 py-4 rounded-2xl bg-africa-cream border border-africa-gold/10 text-sm outline-none"
           />
-          <svg class="absolute left-3 top-3.5 text-africa-clay" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <svg class="absolute left-4 top-4 text-africa-clay" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </div>
-        <a href="#home" class="mobile-nav-link block text-lg font-bold text-africa-terracotta">Home</a>
-        <a href="#notes" class="mobile-nav-link block text-lg font-bold text-africa-terracotta">Notes</a>
-        <a href="#papers" class="mobile-nav-link block text-lg font-bold text-africa-terracotta">Past Papers</a>
-        <a href="#contact" class="mobile-nav-link block text-lg font-bold text-africa-terracotta">Contact</a>
+        <a href="#home" class="mobile-nav-link block text-2xl font-black text-africa-ebony uppercase tracking-tighter">Home</a>
+        <a href="#notes" class="mobile-nav-link block text-2xl font-black text-africa-ebony uppercase tracking-tighter">Notes</a>
+        <a href="#papers" class="mobile-nav-link block text-2xl font-black text-africa-ebony uppercase tracking-tighter">Past Papers</a>
+        <a href="#contact" class="mobile-nav-link block text-2xl font-black text-africa-ebony uppercase tracking-tighter">Contact</a>
       </div>
     </header>
 
     <main>
       <!-- Hero Section -->
-      <section id="home" class="relative py-24 overflow-hidden bg-africa-gradient text-white">
+      <section id="home" class="relative py-32 overflow-hidden bg-africa-gradient text-white">
         <div class="absolute inset-0 bg-kente-pattern opacity-10"></div>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div class="hero-content">
-            <h1 id="hero-title" class="text-4xl font-black leading-tight sm:text-6xl">
+        <div class="mx-auto max-w-7xl px-6 text-center relative z-10">
+          <div class="hero-content max-w-4xl mx-auto">
+            <h1 id="hero-title" class="text-6xl font-black leading-[0.9] sm:text-8xl uppercase tracking-tighter text-balance">
               Imarisha Mustakabali Wako Kupitia Maarifa
             </h1>
-            <p id="hero-subtitle" class="mt-6 text-lg text-africa-cream/80 max-w-2xl mx-auto font-medium">
+            <p id="hero-subtitle" class="mt-10 text-xl text-africa-cream/80 max-w-2xl mx-auto font-medium hero-text">
               Pata rasilimali bora zaidi za elimu nchini Tanzania.
             </p>
 
             <!-- Hero Search Bar -->
-            <div class="mt-10 max-w-2xl mx-auto relative group">
+            <div class="mt-16 max-w-2xl mx-auto relative group">
               <input 
                 type="text" 
                 id="search-input-hero"
                 placeholder="Tafuta masomo, notisi, au mitihani..."
-                class="w-full pl-14 pr-6 py-5 rounded-2xl bg-white text-africa-ebony shadow-2xl shadow-africa-clay/40 border-none focus:ring-4 focus:ring-africa-gold/50 text-lg transition-all"
+                class="w-full pl-16 pr-8 py-6 rounded-[2rem] bg-white text-africa-ebony shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] border-none focus:ring-8 focus:ring-africa-gold/30 text-xl transition-all outline-none"
               />
-              <svg class="absolute left-5 top-1/2 -translate-y-1/2 text-africa-terracotta" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <svg class="absolute left-6 top-1/2 -translate-y-1/2 text-africa-terracotta" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </div>
             
             <!-- Trending Searches -->
-            <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs font-bold text-africa-cream/60">
-              <span class="text-white/60">Inayovuma:</span>
+            <div class="mt-8 flex flex-wrap justify-center gap-4 text-xs font-black uppercase tracking-widest text-africa-cream/60">
+              <span class="text-white/40">Inayovuma:</span>
               <button class="trending-tag hover:text-africa-gold transition-colors">NECTA 2024</button>
               <button class="trending-tag hover:text-africa-gold transition-colors">Biolojia Kidato cha 4</button>
               <button class="trending-tag hover:text-africa-gold transition-colors">HESLB Loans</button>
               <button class="trending-tag hover:text-africa-gold transition-colors">Historia ya Afrika</button>
             </div>
 
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button id="btn-start" class="w-full sm:w-auto px-8 py-4 bg-africa-gold text-africa-ebony font-black rounded-2xl shadow-xl shadow-africa-gold/20 hover:bg-africa-gold/90 transition-all flex items-center justify-center gap-2">
+            <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <button id="btn-start" class="w-full sm:w-auto px-12 py-5 bg-africa-gold text-africa-ebony font-black rounded-2xl shadow-2xl shadow-africa-gold/30 hover:bg-white hover:scale-105 transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-sm">
                 <span id="text-start">Anza Kujifunza</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
-              <button id="btn-papers" class="w-full sm:w-auto px-8 py-4 bg-white/10 text-white border border-white/20 font-black rounded-2xl hover:bg-white/20 transition-all">
+              <button id="btn-papers" class="w-full sm:w-auto px-12 py-5 bg-white/10 text-white border border-white/20 font-black rounded-2xl hover:bg-white/20 transition-all uppercase tracking-widest text-sm">
                 <span id="text-papers">Tazama Mitihani</span>
               </button>
             </div>
@@ -158,68 +158,72 @@
       </section>
 
       <!-- Recent Updates -->
-      <section class="py-24 bg-africa-cream border-t border-africa-gold/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">
-            <h2 id="recent-title" class="section-title">
-              Taarifa Mpya
-            </h2>
-            <button id="view-all-updates" class="px-8 py-3 rounded-full bg-africa-terracotta text-white text-sm font-black hover:bg-africa-clay transition-all uppercase tracking-widest shadow-lg shadow-africa-terracotta/20">
+      <section class="py-32 bg-africa-cream border-t border-africa-gold/10">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-8">
+            <div class="space-y-4">
+              <h2 id="recent-title" class="section-title">
+                Taarifa Mpya
+              </h2>
+              <p class="text-africa-clay font-medium text-lg">Habari za hivi punde kutoka sekta ya elimu.</p>
+            </div>
+            <button id="view-all-updates" class="px-10 py-4 rounded-full bg-africa-ebony text-white text-xs font-black hover:bg-africa-terracotta transition-all uppercase tracking-[0.2em] shadow-2xl">
               Tazama Zote
             </button>
           </div>
 
-          <div id="updates-list" class="grid gap-6">
+          <div id="updates-list" class="grid gap-8">
             <!-- Updates will be injected here by JS -->
           </div>
         </div>
       </section>
       <!-- Study Tips Section -->
-      <section class="py-24 bg-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <section class="py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-africa-gold/5 -skew-x-12 translate-x-1/4"></div>
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
+          <div class="grid lg:grid-cols-2 gap-24 items-center">
             <div class="relative">
-              <div class="absolute -top-10 -left-10 w-40 h-40 bg-africa-gold/20 rounded-full blur-3xl"></div>
-              <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div class="absolute -top-20 -left-20 w-64 h-64 bg-africa-terracotta/10 rounded-full blur-[100px]"></div>
+              <div class="relative rounded-[3rem] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.2)] border-8 border-white">
                 <img 
-                  src="https://picsum.photos/seed/study/800/600" 
+                  src="https://picsum.photos/seed/study/1200/900" 
                   alt="Students studying" 
-                  class="w-full h-auto"
+                  class="w-full h-auto scale-105 hover:scale-100 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-africa-ebony/80 to-transparent flex items-end p-8">
-                  <p class="text-white font-bold italic">"Elimu ni ufunguo wa maisha. Imarisha mustakabali wako leo."</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-africa-ebony/90 via-africa-ebony/20 to-transparent flex items-end p-12">
+                  <p class="text-white text-2xl font-serif italic leading-relaxed">"Elimu ni ufunguo wa maisha. Imarisha mustakabali wako leo."</p>
                 </div>
               </div>
             </div>
-            <div class="space-y-10">
+            <div class="space-y-12">
               <h2 class="section-title">
-                Mbinu za Kufaulu <span class="text-africa-terracotta">Mitihani ya NECTA</span>
+                Mbinu za Kufaulu <br/><span class="text-africa-terracotta">Mitihani ya NECTA</span>
               </h2>
-              <div class="space-y-8">
-                <div class="flex gap-6 group">
-                  <div class="flex-shrink-0 w-16 h-16 rounded-[1.5rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-xl shadow-inner border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white transition-all duration-300">01</div>
+              <div class="space-y-10">
+                <div class="flex gap-8 group">
+                  <div class="flex-shrink-0 w-20 h-20 rounded-[2rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-2xl shadow-xl border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white group-hover:rotate-6 transition-all duration-500">01</div>
                   <div>
-                    <h4 class="text-xl font-black text-africa-ebony">Pangilia Muda Wako</h4>
-                    <p class="text-africa-clay font-medium leading-relaxed mt-2">Tengeneza ratiba ya kujisomea na uifuate kwa umakini. Gawanya masomo magumu na mepesi.</p>
+                    <h4 class="text-2xl font-black text-africa-ebony">Pangilia Muda Wako</h4>
+                    <p class="text-africa-clay font-medium leading-relaxed mt-3 text-lg">Tengeneza ratiba ya kujisomea na uifuate kwa umakini. Gawanya masomo magumu na mepesi.</p>
                   </div>
                 </div>
-                <div class="flex gap-6 group">
-                  <div class="flex-shrink-0 w-16 h-16 rounded-[1.5rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-xl shadow-inner border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white transition-all duration-300">02</div>
+                <div class="flex gap-8 group">
+                  <div class="flex-shrink-0 w-20 h-20 rounded-[2rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-2xl shadow-xl border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white group-hover:rotate-6 transition-all duration-500">02</div>
                   <div>
-                    <h4 class="text-xl font-black text-africa-ebony">Tumia Mitihani ya Zamani</h4>
-                    <p class="text-africa-clay font-medium leading-relaxed mt-2">Kupitia mitihani ya miaka iliyopita hukusaidia kuelewa mfumo wa maswali ya NECTA.</p>
+                    <h4 class="text-2xl font-black text-africa-ebony">Tumia Mitihani ya Zamani</h4>
+                    <p class="text-africa-clay font-medium leading-relaxed mt-3 text-lg">Kupitia mitihani ya miaka iliyopita hukusaidia kuelewa mfumo wa maswali ya NECTA.</p>
                   </div>
                 </div>
-                <div class="flex gap-6 group">
-                  <div class="flex-shrink-0 w-16 h-16 rounded-[1.5rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-xl shadow-inner border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white transition-all duration-300">03</div>
+                <div class="flex gap-8 group">
+                  <div class="flex-shrink-0 w-20 h-20 rounded-[2rem] bg-africa-cream flex items-center justify-center text-africa-terracotta font-black text-2xl shadow-xl border border-africa-gold/10 group-hover:bg-africa-terracotta group-hover:text-white group-hover:rotate-6 transition-all duration-500">03</div>
                   <div>
-                    <h4 class="text-xl font-black text-africa-ebony">Jadiliana na Wenzako</h4>
-                    <p class="text-africa-clay font-medium leading-relaxed mt-2">Vikundi vya majadiliano huongeza uelewa na kukusaidia kukumbuka mambo uliyojifunza.</p>
+                    <h4 class="text-2xl font-black text-africa-ebony">Jadiliana na Wenzako</h4>
+                    <p class="text-africa-clay font-medium leading-relaxed mt-3 text-lg">Vikundi vya majadiliano huongeza uelewa na kukusaidia kukumbuka mambo uliyojifunza.</p>
                   </div>
                 </div>
               </div>
-              <button class="px-10 py-5 bg-africa-terracotta text-white font-black rounded-2xl hover:bg-africa-clay transition-all shadow-2xl shadow-africa-terracotta/30 uppercase tracking-widest text-sm">
+              <button class="px-12 py-6 bg-africa-terracotta text-white font-black rounded-2xl hover:bg-africa-ebony transition-all shadow-2xl shadow-africa-terracotta/30 uppercase tracking-[0.2em] text-xs">
                 Soma Miongozo Zaidi
               </button>
             </div>
@@ -230,37 +234,49 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-africa-ebony text-white py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-12 lg:grid-cols-3">
+    <footer id="contact" class="bg-africa-ebony text-white py-32 relative overflow-hidden">
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-africa-gradient"></div>
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="grid gap-20 lg:grid-cols-4">
           <!-- Brand -->
-          <div class="space-y-6">
-            <div class="flex items-center gap-2">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-africa-gold text-africa-ebony">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div class="space-y-8 col-span-1 lg:col-span-2">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-africa-gold text-africa-ebony shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
-              <span class="text-2xl font-black tracking-tighter uppercase">
+              <span class="text-3xl font-black tracking-tighter uppercase">
                 ELIMU<span class="text-africa-gold">HUB</span>
               </span>
             </div>
-            <p id="footer-desc" class="text-africa-cream/60 text-sm leading-relaxed font-medium">
-              Elimu Hub - Kuziba pengo la ujifunzaji wa kidijitali.
+            <p id="footer-desc" class="text-africa-cream/60 text-lg leading-relaxed font-medium max-w-md">
+              Elimu Hub - Kuziba pengo la ujifunzaji wa kidijitali kupitia teknolojia na maarifa ya asili.
             </p>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-africa-terracotta transition-colors cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-africa-terracotta transition-colors cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-africa-terracotta transition-colors cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              </div>
+            </div>
           </div>
 
           <!-- Links -->
-          <div class="grid grid-cols-2 gap-8">
-            <div>
-              <h5 class="text-africa-gold font-black uppercase tracking-widest text-xs mb-6">Resources</h5>
-              <ul class="space-y-4 text-sm font-bold text-africa-cream/80">
+          <div class="grid grid-cols-2 gap-10">
+            <div class="space-y-8">
+              <h5 class="text-africa-gold font-black uppercase tracking-[0.2em] text-[10px]">Resources</h5>
+              <ul class="space-y-4 text-sm font-black text-africa-cream/80 uppercase tracking-widest">
                 <li><a href="#" class="hover:text-africa-gold transition-colors">Notes</a></li>
                 <li><a href="#" class="hover:text-africa-gold transition-colors">Past Papers</a></li>
                 <li><a href="#" class="hover:text-africa-gold transition-colors">Syllabus</a></li>
               </ul>
             </div>
-            <div>
-              <h5 class="text-africa-gold font-black uppercase tracking-widest text-xs mb-6">Support</h5>
-              <ul class="space-y-4 text-sm font-bold text-africa-cream/80">
+            <div class="space-y-8">
+              <h5 class="text-africa-gold font-black uppercase tracking-[0.2em] text-[10px]">Support</h5>
+              <ul class="space-y-4 text-sm font-black text-africa-cream/80 uppercase tracking-widest">
                 <li><a href="#" class="hover:text-africa-gold transition-colors">FAQs</a></li>
                 <li><a href="#" class="hover:text-africa-gold transition-colors">Contact Us</a></li>
                 <li><a href="#" class="hover:text-africa-gold transition-colors">Privacy</a></li>
@@ -269,21 +285,27 @@
           </div>
 
           <!-- Contact -->
-          <div class="space-y-6">
-            <h5 class="text-africa-gold font-black uppercase tracking-widest text-xs mb-6">Contact Us</h5>
-            <div class="flex items-center gap-3 text-sm font-bold text-africa-cream/80">
-              <svg class="text-africa-gold" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>+255 700 000 000</span>
-            </div>
-            <div class="flex items-center gap-3 text-sm font-bold text-africa-cream/80">
-              <svg class="text-africa-gold" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-              <span>info@elimu-hub.co.tz</span>
+          <div class="space-y-10">
+            <h5 class="text-africa-gold font-black uppercase tracking-[0.2em] text-[10px]">Contact Us</h5>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 text-sm font-black text-africa-cream/80 uppercase tracking-widest">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-africa-gold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <span>+255 700 000 000</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm font-black text-africa-cream/80 uppercase tracking-widest">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-africa-gold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                </div>
+                <span>info@elimu-hub.co.tz</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="mt-20 pt-8 border-t border-white/10 text-center text-xs font-bold text-africa-gold/40 uppercase tracking-[0.2em]">
-          &copy; 2026 ELIMU HUB. ALL RIGHTS RESERVED.
+        <div class="mt-32 pt-12 border-t border-white/5 text-center text-[10px] font-black text-africa-gold/20 uppercase tracking-[0.4em]">
+          &copy; 2026 ELIMU HUB. ALL RIGHTS RESERVED. <br class="sm:hidden"/> CRAFTED WITH PRECISION.
         </div>
       </div>
     </footer>
