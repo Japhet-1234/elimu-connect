@@ -371,6 +371,7 @@ document.querySelectorAll('.mobile-nav-link').forEach(link => {
 // Initial Render
 updateTranslations();
 renderUpdates();
+observeElements();
 
 // Trending Tags
 document.querySelectorAll('.trending-tag').forEach(tag => {
