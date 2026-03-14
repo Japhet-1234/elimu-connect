@@ -112,7 +112,7 @@ export default function App() {
       <div className="absolute inset-0 pattern-bg pointer-events-none" />
       
       {/* Navigation */}
-      <header className="sticky top-0 z-50 glass border-b border-brand-earth/10">
+      <header className="sticky top-0 z-50 glass border-b-4 border-brand-ochre">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -132,17 +132,17 @@ export default function App() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-10">
-              <a href="#" className="text-sm font-bold text-brand-earth/70 hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.home}</a>
-              <a href="#" className="text-sm font-bold text-brand-earth/70 hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.notes}</a>
-              <a href="#" className="text-sm font-bold text-brand-earth/70 hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.pastPapers}</a>
-              <a href="#" className="text-sm font-bold text-brand-earth/70 hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.results}</a>
+              <a href="#" className="text-sm font-black text-brand-earth hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.home}</a>
+              <a href="#" className="text-sm font-black text-brand-earth hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.notes}</a>
+              <a href="#" className="text-sm font-black text-brand-earth hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.pastPapers}</a>
+              <a href="#" className="text-sm font-black text-brand-earth hover:text-brand-terracotta transition-colors uppercase tracking-wider">{t.nav.results}</a>
             </nav>
 
             {/* Actions */}
             <div className="flex items-center gap-4">
               <button 
                 onClick={toggleLang}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-brand-terracotta/20 bg-white/50 hover:bg-brand-terracotta hover:text-white transition-all text-sm font-bold text-brand-terracotta"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-brand-earth bg-white hover:bg-brand-terracotta hover:text-white transition-all text-sm font-black text-brand-earth"
               >
                 <Languages className="w-4 h-4" />
                 <span>{lang === 'en' ? 'SW' : 'EN'}</span>
@@ -165,7 +165,7 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-brand-cream border-b border-brand-earth/10 overflow-hidden"
+              className="md:hidden bg-brand-cream border-b-4 border-brand-ochre overflow-hidden"
             >
               <div className="px-4 py-6 space-y-4">
                 <a href="#" className="block text-lg font-serif font-bold text-brand-earth">{t.nav.home}</a>
@@ -185,7 +185,7 @@ export default function App() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-block px-4 py-1.5 mb-8 rounded-full bg-brand-terracotta/10 border border-brand-terracotta/20 text-brand-terracotta text-xs font-bold uppercase tracking-[0.3em]"
+              className="inline-block px-6 py-2 mb-8 rounded-full bg-brand-earth text-brand-cream text-xs font-black uppercase tracking-[0.3em] shadow-xl"
             >
               {t.tagline}
             </motion.div>
@@ -193,7 +193,7 @@ export default function App() {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-serif font-bold text-brand-earth leading-tight mb-8"
+              className="text-6xl md:text-8xl font-serif font-bold text-brand-earth leading-tight mb-8"
             >
               {t.hero.title}
             </motion.h1>
@@ -202,7 +202,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl md:text-2xl text-brand-earth/70 font-serif italic max-w-3xl mx-auto mb-12"
+              className="text-2xl md:text-3xl text-brand-earth font-serif italic max-w-3xl mx-auto mb-12"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -215,23 +215,23 @@ export default function App() {
               className="max-w-3xl mx-auto relative mb-16"
             >
               <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-                <Search className="h-6 w-6 text-brand-terracotta" />
+                <Search className="h-8 w-8 text-brand-terracotta" />
               </div>
               <input 
                 type="text" 
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-16 pr-6 py-6 bg-white border-4 border-brand-earth/5 rounded-3xl shadow-2xl shadow-brand-earth/5 focus:border-brand-terracotta focus:ring-0 transition-all text-brand-earth text-lg font-medium placeholder:text-brand-earth/30"
+                className="w-full pl-16 pr-6 py-8 bg-white border-4 border-brand-earth rounded-3xl shadow-2xl shadow-brand-earth/20 focus:border-brand-terracotta focus:ring-0 transition-all text-brand-earth text-xl font-bold placeholder:text-brand-earth/40"
               />
-              <button className="absolute right-3 top-3 bottom-3 px-8 bg-brand-terracotta text-white rounded-2xl font-bold hover:bg-brand-ochre transition-all shadow-lg shadow-brand-terracotta/30">
+              <button className="absolute right-4 top-4 bottom-4 px-10 bg-brand-terracotta text-white rounded-2xl font-black text-lg hover:bg-brand-ochre transition-all shadow-lg shadow-brand-terracotta/30">
                 {lang === 'en' ? 'Search' : 'Tafuta'}
               </button>
             </motion.div>
 
             <div className="flex flex-wrap justify-center gap-6">
-              <button className="px-10 py-4 bg-brand-olive text-white rounded-full font-bold shadow-xl shadow-brand-olive/20 hover:scale-105 transition-transform">
+              <button className="px-12 py-5 bg-brand-olive text-white rounded-full font-black text-lg shadow-2xl shadow-brand-olive/40 hover:scale-105 transition-transform border-b-4 border-black/20">
                 {t.hero.cta}
               </button>
-              <button className="px-10 py-4 bg-white text-brand-earth border-2 border-brand-earth/10 rounded-full font-bold hover:bg-brand-cream transition-colors">
+              <button className="px-12 py-5 bg-white text-brand-earth border-4 border-brand-earth rounded-full font-black text-lg hover:bg-brand-cream transition-colors shadow-xl">
                 {t.nav.pastPapers}
               </button>
             </div>
@@ -239,32 +239,33 @@ export default function App() {
         </section>
 
         {/* Levels Grid */}
-        <section className="py-24 bg-white/50 backdrop-blur-sm border-y border-brand-earth/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-brand-ochre/10 border-y-8 border-brand-earth/10 relative">
+          <div className="absolute inset-0 pattern-bg opacity-20 pointer-events-none" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col items-center text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-brand-earth mb-4">{t.sections.levels}</h2>
-              <div className="h-1.5 w-24 bg-brand-terracotta rounded-full" />
+              <h2 className="text-5xl font-serif font-bold text-brand-earth mb-4">{t.sections.levels}</h2>
+              <div className="h-2 w-32 bg-brand-terracotta rounded-full shadow-sm" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {levels.map((level) => (
                 <motion.div 
                   key={level.id}
-                  whileHover={{ y: -10 }}
-                  className="group p-8 rounded-[2.5rem] border-2 border-brand-earth/5 bg-white hover:bg-brand-cream hover:shadow-2xl hover:border-brand-terracotta/30 transition-all cursor-pointer text-center"
+                  whileHover={{ y: -15, rotate: -1 }}
+                  className="group p-10 rounded-[3rem] border-4 border-brand-earth bg-white hover:shadow-[0_20px_50px_rgba(69,26,3,0.2)] transition-all cursor-pointer text-center"
                 >
-                  <div className={`w-20 h-20 ${level.color} rounded-3xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl rotate-3 group-hover:rotate-0 transition-transform`}>
+                  <div className={`w-24 h-24 ${level.color} rounded-3xl flex items-center justify-center text-white mx-auto mb-8 shadow-2xl rotate-6 group-hover:rotate-0 transition-transform border-4 border-white/20`}>
                     {level.icon}
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-brand-earth mb-3 group-hover:text-brand-terracotta transition-colors">
+                  <h3 className="text-3xl font-serif font-bold text-brand-earth mb-4 group-hover:text-brand-terracotta transition-colors">
                     {level.name}
                   </h3>
-                  <p className="text-brand-earth/60 mb-6 leading-relaxed">
+                  <p className="text-brand-earth font-medium mb-8 leading-relaxed opacity-80">
                     {lang === 'en' ? 'Access notes, exams and more.' : 'Pata notisi, mitihani na zaidi.'}
                   </p>
-                  <div className="inline-flex items-center text-brand-terracotta font-bold group-hover:gap-2 transition-all">
+                  <div className="inline-flex items-center text-brand-terracotta font-black text-lg group-hover:gap-3 transition-all">
                     <span>{lang === 'en' ? 'Explore' : 'Chunguza'}</span>
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-6 h-6" />
                   </div>
                 </motion.div>
               ))}
@@ -273,37 +274,37 @@ export default function App() {
         </section>
 
         {/* Popular Resources */}
-        <section className="py-24">
+        <section className="py-24 bg-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-end mb-16">
-              <div>
-                <h2 className="text-4xl font-serif font-bold text-brand-earth mb-2">{t.sections.popular}</h2>
-                <div className="h-1 w-20 bg-brand-olive rounded-full" />
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
+              <div className="text-center md:text-left">
+                <h2 className="text-5xl font-serif font-bold text-brand-earth mb-4">{t.sections.popular}</h2>
+                <div className="h-2 w-24 bg-brand-olive rounded-full mx-auto md:mx-0" />
               </div>
-              <button className="text-brand-terracotta font-bold flex items-center gap-2 hover:gap-3 transition-all">
+              <button className="px-8 py-3 bg-brand-earth text-brand-cream rounded-full font-black flex items-center gap-2 hover:bg-brand-terracotta transition-all shadow-lg">
                 {lang === 'en' ? 'View All' : 'Ona Zote'}
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {popularResources.map((res, i) => (
-                <div key={i} className="flex items-center justify-between p-6 bg-white rounded-3xl border border-brand-earth/5 hover:border-brand-terracotta/30 hover:shadow-lg transition-all group">
-                  <div className="flex items-center gap-6">
-                    <div className="w-14 h-14 bg-brand-cream rounded-2xl flex items-center justify-center text-brand-terracotta border border-brand-terracotta/10">
-                      <FileText className="w-7 h-7" />
+                <div key={i} className="flex items-center justify-between p-8 bg-brand-cream rounded-[2rem] border-4 border-brand-earth/10 hover:border-brand-terracotta hover:shadow-2xl transition-all group">
+                  <div className="flex items-center gap-8">
+                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-terracotta border-2 border-brand-terracotta/20 shadow-inner">
+                      <FileText className="w-8 h-8" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-serif font-bold text-brand-earth group-hover:text-brand-terracotta transition-colors">{res.title}</h4>
-                      <div className="flex items-center gap-3 mt-2">
-                        <span className="text-xs font-bold px-3 py-1 bg-brand-olive/10 text-brand-olive rounded-full uppercase tracking-wider">{res.level}</span>
-                        <span className="w-1 h-1 bg-brand-earth/20 rounded-full" />
-                        <span className="text-xs font-bold text-brand-earth/40 uppercase tracking-wider">{res.type}</span>
+                      <h4 className="text-2xl font-serif font-bold text-brand-earth group-hover:text-brand-terracotta transition-colors">{res.title}</h4>
+                      <div className="flex items-center gap-4 mt-3">
+                        <span className="text-xs font-black px-4 py-1.5 bg-brand-olive text-white rounded-full uppercase tracking-wider">{res.level}</span>
+                        <span className="w-2 h-2 bg-brand-earth/20 rounded-full" />
+                        <span className="text-xs font-black text-brand-earth/50 uppercase tracking-widest">{res.type}</span>
                       </div>
                     </div>
                   </div>
-                  <button className="w-12 h-12 flex items-center justify-center rounded-full bg-brand-cream text-brand-earth/40 hover:bg-brand-terracotta hover:text-white transition-all">
-                    <Download className="w-6 h-6" />
+                  <button className="w-14 h-14 flex items-center justify-center rounded-full bg-white text-brand-earth border-2 border-brand-earth/10 hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-all shadow-md">
+                    <Download className="w-7 h-7" />
                   </button>
                 </div>
               ))}
@@ -313,9 +314,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-brand-earth text-brand-cream py-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-ochre via-brand-olive to-brand-terracotta" />
-        
+      <footer className="bg-brand-earth text-brand-cream py-24 relative overflow-hidden african-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
             <div>

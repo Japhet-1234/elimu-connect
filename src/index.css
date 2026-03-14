@@ -30,11 +30,12 @@ body {
 }
 
 .pattern-bg {
-  background-image: radial-gradient(var(--color-brand-terracotta) 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
-  opacity: 0.05;
+  background-image: radial-gradient(var(--color-brand-terracotta) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.15;
 }
 
-.african-border {
-  border-image: repeating-linear-gradient(45deg, var(--color-brand-ochre), var(--color-brand-ochre) 10px, var(--color-brand-olive) 10px, var(--color-brand-olive) 20px) 10;
+.african-border-top {
+  border-top: 8px solid;
+  border-image: repeating-linear-gradient(90deg, var(--color-brand-ochre), var(--color-brand-ochre) 20px, var(--color-brand-terracotta) 20px, var(--color-brand-terracotta) 40px, var(--color-brand-olive) 40px, var(--color-brand-olive) 60px) 1;
 }
