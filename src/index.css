@@ -9,6 +9,7 @@
   --color-brand-olive: #3F6212;
   --color-brand-cream: #FDFCF0;
   --color-brand-earth: #451A03;
+  --color-brand-sand: #E7E5E4;
 }
 
 :root {
@@ -20,22 +21,50 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .glass {
-  background: rgba(253, 252, 240, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(253, 252, 240, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(69, 26, 3, 0.1);
 }
 
 .pattern-bg {
   background-image: radial-gradient(var(--color-brand-terracotta) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.15;
+  background-size: 40px 40px;
+  opacity: 0.1;
+}
+
+.zig-zag-bg {
+  background: linear-gradient(135deg, var(--color-brand-ochre) 25%, transparent 25%) -50px 0,
+              linear-gradient(225deg, var(--color-brand-ochre) 25%, transparent 25%) -50px 0,
+              linear-gradient(315deg, var(--color-brand-ochre) 25%, transparent 25%),
+              linear-gradient(45deg, var(--color-brand-ochre) 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: var(--color-brand-earth);
 }
 
 .african-border-top {
-  border-top: 8px solid;
-  border-image: repeating-linear-gradient(90deg, var(--color-brand-ochre), var(--color-brand-ochre) 20px, var(--color-brand-terracotta) 20px, var(--color-brand-terracotta) 40px, var(--color-brand-olive) 40px, var(--color-brand-olive) 60px) 1;
+  border-top: 12px solid;
+  border-image: repeating-linear-gradient(90deg, 
+    var(--color-brand-ochre) 0px, var(--color-brand-ochre) 30px, 
+    var(--color-brand-terracotta) 30px, var(--color-brand-terracotta) 60px, 
+    var(--color-brand-olive) 60px, var(--color-brand-olive) 90px,
+    var(--color-brand-earth) 90px, var(--color-brand-earth) 120px
+  ) 1;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--color-brand-earth);
+  color: transparent;
+}
+
+.card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(69, 26, 3, 0.15);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 20px 40px -15px rgba(69, 26, 3, 0.25);
 }
